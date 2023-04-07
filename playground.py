@@ -31,8 +31,7 @@ sales_count = db.sales.count_documents({
 print(f"{sales_count} sales occurred on April 4th, 2014.")
 
 # Here we run an aggregation and open a cursor to the results.
-# Use '.to_list()' to exhaust the cursor to return the whole result set.
-# You can use '.has_next()/.next()' to iterate through the cursor page by page.
+
 cursor = db.sales.aggregate([
   # Find all of the sales that occurred in 2014.
   { '$match': { 'date': { '$gte': datetime(2014, 1, 1), '$lt': datetime(2015, 1, 1) } } },
